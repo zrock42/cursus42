@@ -45,6 +45,8 @@ int	ft_buf(char *buf, ssize_t *j, size_t buf_size, char *line, size_t *i)
 	return (1);
 }
 
+// makes a line starting with an empty buffer and at line[i].
+
 char	*make_line(void *buf, char *line, ssize_t *j, size_t buf_size, size_t *i)
 {
 	while (1)
