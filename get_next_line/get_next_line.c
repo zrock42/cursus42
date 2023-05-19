@@ -1,32 +1,48 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zrock <zrock@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/18 20:19:10 by zrock             #+#    #+#             */
+/*   Updated: 2023/04/18 20:19:10 by zrock            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	static_vars(ssize_t *j, size_t *buf_size, void **buf, int *def)
+#include "get_next_line.h"
+
+// void	static_vars(ssize_t *j, size_t *buf_size, void **buf, int *def)
+// {
+// 	*buf = malloc(sizeof(char) * *buf_size);
+// 	*def = 1;
+// }
+
+// char	*get_next_line(int fd)
+// {
+// 	static size_t	j = 0;
+// 	static size_t	buf_size = 10;
+// 	static void		*buf;
+// 	static int		def = 0;
+
+// 	if (!def)
+// 		static_vars(&j, &buf_size, &buf, &def);
+// 	if (!buf)
+// 		return (NULL);
+// 	return (make_line(buf, &j, buf_size, fd));
+// }
+
+int	main(void)
 {
-	*j = -1;
-	*buf_size = 10;
-	*buf = malloc(sizeof(char) * buf_size);
-	*def = 1;
-}
+	int			fd;
+	FILE		*fp;
+	void		*buf;
+	ssize_t		x;
 
-char *get_next_line(int fd)
-{
-	size_t			i;
-	char			line[100000001];
-	static ssize_t	j;
-	static size_t	buf_size;
-	static void		*buf;
-	static int		def;
-
-	if (!def)
-		static_vars(&j, &buf_size, &buf, &def)
-	if (!buf)
-		return (NULL);
-	i = 0;
-	if (j > -1)
-		if (ft_buf((char *)buf, j, buf_size, line, &i))
-			return (line);
-	if (/*end of file*/)
-		free(buf);
-	return (make_line(buf, line, &j, buf_size, &i));
-	return line;
+	x = 0;
+	buf = malloc(15);
+	fp = fopen("test_get", "r");
+	fd = fileno(fp);
+	printf("%i", (int)ft_read(fd, buf, 15, &x));
+	write(1, (char *)buf, 15);
 }
