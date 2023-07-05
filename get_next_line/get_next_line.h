@@ -18,8 +18,8 @@
 # include <stdio.h>
 
 //char	*get_next_line(int fd);
-ssize_t	ft_read(int fd, void *buf, size_t buf_size, ssize_t *bytes_read);
-size_t	ft_store(void *buf, char *line, size_t buf_size, size_t j);
+size_t	ft_store(void *buf, char *line, size_t buf_size, size_t j, size_t *i);
+int		ft_add_to_line(char *line, size_t buf_size, size_t count);
 char	*make_line(size_t *j, size_t buf_size, void *buf, int fd);
 
 #endif

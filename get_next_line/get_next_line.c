@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-// void	static_vars(ssize_t *j, size_t *buf_size, void **buf, int *def)
+// static void	static_buf(ssize_t *j, size_t *buf_size, void **buf, int *def)
 // {
 // 	*buf = malloc(sizeof(char) * *buf_size);
 // 	*def = 1;
@@ -26,7 +26,7 @@
 // 	static int		def = 0;
 
 // 	if (!def)
-// 		static_vars(&j, &buf_size, &buf, &def);
+// 		static_buf(&j, &buf_size, &buf, &def);
 // 	if (!buf)
 // 		return (NULL);
 // 	return (make_line(buf, &j, buf_size, fd));
